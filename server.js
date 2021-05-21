@@ -6,7 +6,7 @@ const path = require('path');
 // Sets up the Express App
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -41,7 +41,7 @@ const characters = [
 // Routes
 
 // Basic route that sends the user first to the AJAX Page
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'view.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/view.html')));
 
 app.get('/add', (req, res) => res.sendFile(path.join(__dirname, 'add.html')));
 
